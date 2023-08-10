@@ -111,6 +111,7 @@ def main():
     anxyf = anxiety * yellow_fingers
 
     
+    accuracy = [98.33, 93.33, 92.5, 95.83, 95.83, 65.83, 95.83, 100, 98.33]
     
     
     data = [[gender, age, smoking, yellow_fingers, anxiety, peer_pressure, chronic_disease, fatigue,
