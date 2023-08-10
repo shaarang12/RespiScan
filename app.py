@@ -25,5 +25,11 @@ def main():
         result = predict_placement(cgpa, iq, profile_score)
         st.write(f"The predicted placement result is: {result}")
 
+        # Based on the result, show a link to a specific HTML page
+        if result == 'placed':
+            st.markdown("<a href='placed.html' target='_blank'>Click here for placement details</a>", unsafe_allow_html=True)
+        else:
+            st.markdown("<a href='not_placed.html' target='_blank'>Click here for more options</a>", unsafe_allow_html=True)
+
 if __name__ == "__main__":
     main()
