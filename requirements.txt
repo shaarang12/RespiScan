@@ -4,3 +4,4 @@ scikit-learn
 streamlit
 streamlit-option-menu
 pandas
+daal4py
