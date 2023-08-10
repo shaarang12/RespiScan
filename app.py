@@ -18,7 +18,7 @@ def main():
     st.write("Please fill out the form below:")
 
     # Form inputs
-    gender = st.selectbox("Gender", ['Male', 'Female'])
+    gender = st.radio("Gender", ['Male', 'Female'])
     age = st.number_input("Age", min_value=1, value=18)
     smoking = st.radio("Smoking", ['No', 'Yes'])
     yellow_fingers = st.radio("Yellow Fingers", ['No', 'Yes'])
