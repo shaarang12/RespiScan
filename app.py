@@ -130,10 +130,10 @@ def main():
     
         # Display result
         if positive_percentage > negative_percentage:
-            st.write(f"Prediction: Health Risk - Positive (positive_percentage)")
+            st.write(f"Prediction: Health Risk - Positive ({positive_percentage})")
             # Add more details or visualizations as needed for a positive prediction
         else:
-            st.write(f"Prediction: Health Risk - Negative (__ confidence)")
+            st.write(f"Prediction: Health Risk - Negative ({negative_percentage})")
             # Add more details or visualizations as needed for a negative prediction
 
 if __name__ == "__main__":
