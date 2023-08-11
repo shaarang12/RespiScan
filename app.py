@@ -11,7 +11,7 @@ MNB_model = pickle.load(open('modelMNB.pkl', 'rb'))
 #SVC_model = pickle.load(open('modelSVC.pkl', 'rb'))
 #RF_model = pickle.load(open('modelRF.pkl', 'rb'))
 MLP_model = pickle.load(open('modelMLP.pkl', 'rb'))
-# LGB_model = pickle.load(open('modelGB.pkl', 'rb'))
+LGB_model = pickle.load(open('modelGB.pkl', 'rb'))
 
 def main():
     st.title("Health Prediction App")
@@ -118,7 +118,7 @@ def main():
              allergy, wheezing, alcohol, coughing, shortness_of_breath, swallowing_difficulty, chest_pain, anxyf]]
 
     # Make predictions
-    models = [LR_model, KNN_model, GNB_model, MNB_model, MLP_model]
+    models = [LR_model, KNN_model, GNB_model, MNB_model, MLP_model, LGB_model]
 
     if st.button("Predict"):
         predictions = [model.predict(data)[0] for model in models]
