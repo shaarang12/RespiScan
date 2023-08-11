@@ -125,8 +125,8 @@ def main():
     models = [LR_model, KNN_model, GNB_model, MNB_model, MLP_model]
 
     # Initialize the session state if it's not already set
-    if 'redirect' not in st.session_state:
-        st.session_state.redirect = False
+    # if 'redirect' not in st.session_state:
+    #     st.session_state.redirect = False
 
     if st.button("Predict"):
         predictions = [model.predict(data)[0] for model in models]
@@ -145,13 +145,12 @@ def main():
             st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
             # Add more details or visualizations as needed for a negative prediction
             url=nurl+f"?perc={negative_percentage}"
-        st.session_state.redirect = True
-        st.experimental_rerun()
+        st.markdown(f"[Result]({url})")
         
     # Display the redirection message
-    if st.session_state.redirect:
-        st.write("Redirecting...")
-        st.experimental_redirect("https://respiscan.s3.ap-south-1.amazonaws.com/no.html")
+    # if st.session_state.redirect:
+    #     st.write("Redirecting...")
+    #     st.experimental_redirect("https://respiscan.s3.ap-south-1.amazonaws.com/no.html")
 
 if __name__ == "__main__":
     main()
