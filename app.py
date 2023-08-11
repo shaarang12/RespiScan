@@ -2,6 +2,9 @@ import streamlit as st
 import pickle
 import numpy as np
 
+yurl="https://respiscan.s3.ap-south-1.amazonaws.com/yes.html"
+nurl="https://respiscan.s3.ap-south-1.amazonaws.com/no.html"
+
 # Load the models
 LR_model = pickle.load(open('modelLR.pkl', 'rb'))
 #DT_model = pickle.load(open('modelDT.pkl', 'rb'))
@@ -127,14 +130,25 @@ def main():
     
         positive_percentage = int((weighted_sum_positive / len(models)))
         negative_percentage = int((weighted_sum_negative / len(models)))
-    
+        url=""
         # Display result
         if positive_percentage > negative_percentage:
-            st.write(f"Prediction: Health Risk - Positive ({positive_percentage}%)")
+            # st.write(f"Prediction: Health Risk - Positive ({positive_percentage}%)")
             # Add more details or visualizations as needed for a positive prediction
+            url=yurl+f"&perc={positive_percentage}"
         else:
-            st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
+            # st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
             # Add more details or visualizations as needed for a negative prediction
+            url=nurl+f"&perc={negative_percentage}"
+        st.write(f'''
+            <a target="_self" href=f"{url}">
+                <button>
+                    Result
+                </button>
+            </a>
+            ''',
+            unsafe_allow_html=True
+        )
 
 if __name__ == "__main__":
     main()
