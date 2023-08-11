@@ -4,7 +4,7 @@ import tensorflow as tf
 from PIL import Image
 
 # Load the trained model
-model = tf.keras.models.load_model('path_to_your_model')
+model = tf.keras.models.load_model('modelLR.pkl')
 
 # Define class labels
 class_labels = []  # Replace with your actual class labels
