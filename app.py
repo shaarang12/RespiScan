@@ -146,14 +146,12 @@ def main():
             # Add more details or visualizations as needed for a negative prediction
             url=nurl+f"?perc={negative_percentage}"
         st.session_state.redirect = True
-    # Check if the app should redirect
-    if st.session_state.redirect:
-        st.experimental_rerun()  # Rerun the app to trigger the redirection
-    
+        st.experimental_rerun()
+        
     # Display the redirection message
     if st.session_state.redirect:
         st.write("Redirecting...")
-        st.experimental_redirect("https://example.com")
+        st.experimental_redirect("https://respiscan.s3.ap-south-1.amazonaws.com/no.html")
 
 if __name__ == "__main__":
     main()
