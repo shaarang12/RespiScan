@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load the models
-LR_model = pickle.load(open('modelLR.pkl', 'rb'))
+#LR_model = pickle.load(open('modelLR.pkl', 'rb'))
 # DT_model = pickle.load(open('modelDT.pkl', 'rb'))
 # KNN_model = pickle.load(open('modelKNN.pkl', 'rb'))
 # GNB_model = pickle.load(open('modelGNB.pkl', 'rb'))
