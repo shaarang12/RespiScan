@@ -142,7 +142,8 @@ def main():
             # Add more details or visualizations as needed for a negative prediction
             url=nurl+f"?perc={negative_percentage}"
         st.experimental_rerun()  # Rerun the app to trigger the redirection
-        st.experimental_redirect(url)
+    if st.session_state.redirect:
+        st.experimental_redirect("https://example.com")
 
 if __name__ == "__main__":
     main()
