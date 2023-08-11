@@ -8,8 +8,8 @@ LR_model = pickle.load(open('modelLR.pkl', 'rb'))
 KNN_model = pickle.load(open('modelKNN.pkl', 'rb'))
 GNB_model = pickle.load(open('modelGNB.pkl', 'rb'))
 MNB_model = pickle.load(open('modelMNB.pkl', 'rb'))
-SVC_model = pickle.load(open('modelSVC.pkl', 'rb'))
-# RF_model = pickle.load(open('modelRF.pkl', 'rb'))
+#SVC_model = pickle.load(open('modelSVC.pkl', 'rb'))
+RF_model = pickle.load(open('modelRF.pkl', 'rb'))
 # MLP_model = pickle.load(open('modelMLP.pkl', 'rb'))
 # LGB_model = pickle.load(open('modelGB.pkl', 'rb'))
 
@@ -118,7 +118,7 @@ def main():
              allergy, wheezing, alcohol, coughing, shortness_of_breath, swallowing_difficulty, chest_pain, anxyf]]
 
     # Make predictions
-    models = [LR_model, KNN_model, GNB_model, MNB_model, SVC_model]
+    models = [LR_model, KNN_model, GNB_model, MNB_model, RF_model]
 
     if st.button("Predict"):
         predictions = [model.predict(data)[0] for model in models]
