@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import webbrowser
 
 yurl="https://respiscan.s3.ap-south-1.amazonaws.com/yes.html"
 nurl="https://respiscan.s3.ap-south-1.amazonaws.com/no.html"
@@ -135,20 +136,12 @@ def main():
         if positive_percentage > negative_percentage:
             # st.write(f"Prediction: Health Risk - Positive ({positive_percentage}%)")
             # Add more details or visualizations as needed for a positive prediction
-            url=yurl+f"&perc={positive_percentage}"
+            url=yurl+f"?perc={positive_percentage}"
         else:
             # st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
             # Add more details or visualizations as needed for a negative prediction
-            url=nurl+f"&perc={negative_percentage}"
-        st.write(f'''
-            <a target="_self" href=f"{url}">
-                <button>
-                    Result
-                </button>
-            </a>
-            ''',
-            unsafe_allow_html=True
-        )
+            url=nurl+f"?perc={negative_percentage}"
+        webbrowser.open(url)
 
 if __name__ == "__main__":
     main()
