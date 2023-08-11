@@ -4,10 +4,10 @@ import tensorflow as tf
 from PIL import Image
 
 # Load the trained model
-model = tf.keras.models.load_model('modelLR.pkl')
+#model = tf.keras.models.load_model('modelLR.pkl')
 
 # Define class labels
-class_labels = []  # Replace with your actual class labels
+#class_labels = []  # Replace with your actual class labels
 
 def preprocess_image(image):
     image = image.resize((224, 224))  # Resize image to match model input size
