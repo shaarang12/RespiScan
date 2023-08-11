@@ -125,15 +125,15 @@ def main():
         weighted_sum_positive = sum(accuracy[i] for i, pred in enumerate(predictions) if pred == 1)
         weighted_sum_negative = sum(accuracy[i] for i, pred in enumerate(predictions) if pred == 0)
     
-        positive_percentage = int((weighted_sum_positive / len(models)) * 100)
-        negative_percentage = int((weighted_sum_negative / len(models)) * 100)
+        positive_percentage = int((weighted_sum_positive / len(models)))
+        negative_percentage = int((weighted_sum_negative / len(models)))
     
         # Display result
         if positive_percentage > negative_percentage:
-            st.write(f"Prediction: Health Risk - Positive ({positive_percentage})")
+            st.write(f"Prediction: Health Risk - Positive ({positive_percentage}%)")
             # Add more details or visualizations as needed for a positive prediction
         else:
-            st.write(f"Prediction: Health Risk - Negative ({negative_percentage})")
+            st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
             # Add more details or visualizations as needed for a negative prediction
 
 if __name__ == "__main__":
