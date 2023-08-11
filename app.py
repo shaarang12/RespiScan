@@ -141,7 +141,8 @@ def main():
             st.write(f"Prediction: Health Risk - Negative ({negative_percentage}%)")
             # Add more details or visualizations as needed for a negative prediction
             url=nurl+f"?perc={negative_percentage}"
-        webbrowser.open(url)
+        st.experimental_rerun()  # Rerun the app to trigger the redirection
+        st.experimental_redirect(url)
 
 if __name__ == "__main__":
     main()
