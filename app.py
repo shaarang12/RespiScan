@@ -4,7 +4,7 @@ import numpy as np
 
 # Load the models
 LR_model = pickle.load(open('modelLR.pkl', 'rb'))
-# DT_model = pickle.load(open('modelDT.pkl', 'rb'))
+DT_model = pickle.load(open('modelDT.pkl', 'rb'))
 # KNN_model = pickle.load(open('modelKNN.pkl', 'rb'))
 # GNB_model = pickle.load(open('modelGNB.pkl', 'rb'))
 # MNB_model = pickle.load(open('modelMNB.pkl', 'rb'))
@@ -118,12 +118,12 @@ def main():
              allergy, wheezing, alcohol, coughing, shortness_of_breath, swallowing_difficulty, chest_pain, anxyf]]
 
     # Make predictions
-    models = [LR_model]
+    models = [LR_model, DT_model]
 
     if st.button("Predict"):
         predictions = [model.predict(data)[0] for model in models]
-        weighted_sum_positive = sum(accuracy[0] for i, pred in enumerate(predictions) if pred == 1)
-        weighted_sum_negative = sum(accuracy[0] for i, pred in enumerate(predictions) if pred == 0)
+        weighted_sum_positive = sum(accuracy[i] for i, pred in enumerate(predictions) if pred == 1)
+        weighted_sum_negative = sum(accuracy[i] for i, pred in enumerate(predictions) if pred == 0)
     
         positive_percentage = int((weighted_sum_positive / len(models)) * 100)
         negative_percentage = int((weighted_sum_negative / len(models)) * 100)
